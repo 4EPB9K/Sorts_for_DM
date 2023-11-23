@@ -7,7 +7,7 @@ public class SeqSearch {
         int lastIndex = (integers.length - 1);
         int count = 0;
 
-        while ((startIndex <= lastIndex) && (elementToSearch >= integers[startIndex]) &&
+        while ((startIndex < lastIndex) && (elementToSearch >= integers[startIndex]) &&
                 (elementToSearch <= integers[lastIndex])) {
             // используем формулу интерполяции для поиска возможной лучшей позиции для существующего элемента
             int pos = startIndex + (((lastIndex - startIndex) /
@@ -28,7 +28,7 @@ public class SeqSearch {
     public static double averageRavnoInterpol(int[] arr) {
         int count = 0;
         for (int i = 1; i <= arr.length; i++) {
-            count += interpolationSearch(arr, i);
+            count += interpolationSearch(arr, arr[i - 1]);
         }
         return (double) count / arr.length;
     }
@@ -52,7 +52,7 @@ public class SeqSearch {
     public static double averageRavnoSeq(int[] arr) {
         int count = 0;
         for (int i = 1; i <= arr.length; i++) {
-            count += SequentialSearch(arr, i);
+            count += SequentialSearch(arr, arr[i - 1]);
         }
         return (double) count / arr.length;
     }
@@ -89,7 +89,7 @@ public class SeqSearch {
     public static double averageRavnoBinary(int[] arr) {
         int count = 0;
         for (int i = 1; i <= arr.length; i++) {
-            count += binarySearch(arr, i);
+            count += binarySearch(arr, arr[i - 1]);
         }
         return (double) count / arr.length;
     }

@@ -1,5 +1,7 @@
 import sorts.Determinant;
 import sorts.InsertSort;
+import sorts.ShakerSort;
+import sorts.ShellSort;
 
 import java.util.Arrays;
 
@@ -34,24 +36,31 @@ public class Main {
         //int index = binarySearch(new int[]{89, 57, 91, 47, 95, 3, 27, 22, 67, 99}, 67);
         int binaryIndex = binarySearch(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 7);
         int seqIndex = SequentialSearch(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 10);
-        int interpolationIndex = interpolationSearch(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 1);
+        int interpolationIndex = interpolationSearch(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 7);
         System.out.println("67 индекс: " + binaryIndex);
-        System.out.println("Число сравнений бинарного поиск " + averageRavnoBinary(new int[]{1,2,3,4}));//ответ
+        System.out.println("Число сравнений бинарного поиск " + averageRavnoBinary(new int[]{1, 2, 3, 4}));//ответ
         System.out.println("5 индекс последовательного поиска: " + seqIndex);
-        System.out.println("Число сравнений послед поиск " + averageRavnoSeq(new int[]{2,3,1,4}));//ответ
-        System.out.println("5 индекс: " + interpolationIndex);
-        System.out.println("Число сравнений интерпол поиск " + averageRavnoInterpol(new int[]{1,2,4}));//ответ
+        System.out.println("Число сравнений послед поиск " + averageRavnoSeq(new int[]{2, 3, 1, 4}));//ответ
+        System.out.println("интер индекс: " + interpolationIndex);
+        System.out.println("Число сравнений интерпол поиск " + averageRavnoInterpol(new int[]{1, 4, 6, 8, 9, 10, 13, 15, 19, 20, 25, 28, 30}));//ответ
 
         //____________________!!!____________________//
-        int[] insertArray = insertionSort(new int[]{4, 1, 4, 5, 2, 6, 7, 3},0);
+        int[] insertArray = insertionSort(new int[]{4, 1, 4, 5, 2, 6, 7, 3}, 0);
         int count = InsertSort.count(0);
         System.out.println("Новый массив: " + Arrays.toString(insertArray));
         System.out.println("Число сравнений: " + count);
 
         //____________________!!!____________________//
-        /*int[] shelltArray = insertionSort(new int[]{4, 1, 4, 5, 2, 6, 7, 3},0);
-        int countSheel = InsertSort.count(0);
-        System.out.println("Новый массив: " + Arrays.toString(shelltArray));
-        System.out.println("Число сравнений: " + countSheel);*/
+        int[] shelltArray = new int[]{4, 1};
+
+        int countSheel = ShellSort.sort(shelltArray);;
+        System.out.println("Новый массив shell: " + Arrays.toString(shelltArray));
+        System.out.println("Число сравнений: " + countSheel);
+//////////////////////////////////////////////////////////////
+        int[] shakeArray = new int[]{4, 1, 3, 2};
+
+        int countShake = ShakerSort.shakerSort(shakeArray);
+        System.out.println("Новый массив shaker: " + Arrays.toString(shakeArray));
+        System.out.println("Число сравнений: " + countShake);
     }
 }
